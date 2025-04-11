@@ -10,33 +10,33 @@ const Footer: React.FC = () => {
   
   const footerLinks = [
     {
-      title: "Product",
+      title: "Produto",
       links: [
-        { label: "Features", href: "#features" },
-        { label: "Demo", href: "#demo" },
-        { label: "Documentation", href: "#docs" },
-        { label: "Pricing", href: "#pricing" },
-        { label: "Releases", href: "#releases" },
+        { label: "Funcionalidades", href: "#features" },
+        { label: "Demonstração", href: "#demo" },
+        { label: "Documentação", href: "#docs" },
+        { label: "Preços", href: "#pricing" },
+        { label: "Lançamentos", href: "#releases" },
       ],
     },
     {
-      title: "Resources",
+      title: "Recursos",
       links: [
-        { label: "Getting Started", href: "#" },
-        { label: "Tutorials", href: "#" },
-        { label: "Examples", href: "#" },
-        { label: "API Reference", href: "#" },
-        { label: "Community", href: "#" },
+        { label: "Começando", href: "#" },
+        { label: "Tutoriais", href: "#" },
+        { label: "Exemplos", href: "#" },
+        { label: "Referência API", href: "#" },
+        { label: "Comunidade", href: "#" },
       ],
     },
     {
-      title: "Company",
+      title: "Empresa",
       links: [
-        { label: "About Us", href: "#" },
+        { label: "Sobre Nós", href: "#" },
         { label: "Blog", href: "#" },
-        { label: "Careers", href: "#" },
-        { label: "Contact", href: "#" },
-        { label: "Partners", href: "#" },
+        { label: "Carreiras", href: "#" },
+        { label: "Contato", href: "#" },
+        { label: "Parceiros", href: "#" },
       ],
     },
   ];
@@ -80,9 +80,8 @@ const Footer: React.FC = () => {
             </div>
             
             <p className="text-gray-400 text-sm mb-6">
-              Modern web CLI for building beautiful, 
-              high-performance applications with an exceptional 
-              developer experience.
+              CLI moderna para construir aplicações bonitas e de alta performance
+              com uma experiência excepcional para desenvolvedores.
             </p>
             
             <div className="flex gap-4">
@@ -131,9 +130,9 @@ const Footer: React.FC = () => {
           
           {/* Newsletter */}
           <div className="col-span-2 md:col-span-1">
-            <h4 className="font-medium text-lg mb-4">Subscribe</h4>
+            <h4 className="font-medium text-lg mb-4">Newsletter</h4>
             <p className="text-gray-400 text-sm mb-4">
-              Get the latest updates from our team
+              Receba as últimas atualizações da nossa equipe
             </p>
             
             <div className="flex">
@@ -152,18 +151,18 @@ const Footer: React.FC = () => {
         {/* Bottom section */}
         <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-400">
-            © {currentYear} Raph CLI. All rights reserved.
+            © {currentYear} Raph CLI. Todos os direitos reservados.
           </p>
           
           <div className="flex gap-6">
             <a href="#" className="text-sm text-gray-400 hover:text-yellow">
-              Privacy Policy
+              Política de Privacidade
             </a>
             <a href="#" className="text-sm text-gray-400 hover:text-yellow">
-              Terms of Service
+              Termos de Serviço
             </a>
             <a href="#" className="text-sm text-gray-400 hover:text-yellow">
-              Cookie Policy
+              Política de Cookies
             </a>
           </div>
         </div>
