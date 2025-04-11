@@ -17,7 +17,6 @@ export default function PageComponents() {
         restDelta: 0.001
     });
 
-    // Make sure framer-motion animations are properly reset when component mounts
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -32,7 +31,7 @@ export default function PageComponents() {
 
             <Navbar />
 
-            <main className="flex-1">
+            <main className="flex-1 container mx-auto px-8 md:px-14">
                 <Hero />
                 <Techs />
                 <Features />

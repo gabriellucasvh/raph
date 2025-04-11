@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-10 md:pt-0">
+      <div className="container mx-auto relative z-10 pt-10 md:pt-0">
         {/* Grid container - improved spacing */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-items-center lg:justify-items-start">
           {/* Text content - improved desktop spacing */}

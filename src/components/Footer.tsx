@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         {/* Main footer content */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 pb-12 border-b border-white/10">
           {/* Logo and info */}

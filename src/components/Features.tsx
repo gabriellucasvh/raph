@@ -90,7 +90,7 @@ const Features: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-96 bg-yellow/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto relative">
         {/* Section headline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

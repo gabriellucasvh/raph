@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
           : "py-5"
         }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-8 md:px-14 flex items-center justify-between">
         {/* Logo */}
         <motion.a
           href="/"
@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="flex items-center gap-2 text-gray-400 hover:text-white p-2"
+            className="flex items-center gap-2 text-gray-400 hover:text-white"
           >
             <Github size={20} />
           </motion.a>

@@ -31,7 +31,7 @@ const Techs: React.FC = () => {
         <div className="absolute bottom-0 right-0 w-60 h-60 bg-yellow/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto relative">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
