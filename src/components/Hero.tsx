@@ -329,18 +329,6 @@ const Hero: React.FC = () => {
             />
           </motion.div>
         </div>
-
-        {/* Coffee badge */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="absolute bottom-20 right-10 hidden lg:flex items-center gap-2 px-3 py-1.5 bg-yellow/10 rounded-full"
-        >
-          <Coffee className="text-yellow w-4 h-4" />
-          <span className="text-xs text-gray-300">Desenvolvido com 🐈 e JavaScript</span>
-        </motion.div>
-
       </div>
     </section>
   );
