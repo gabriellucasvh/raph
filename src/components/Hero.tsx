@@ -3,23 +3,24 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import GlowingButton from "./ui-components/GlowingButton";
-import { ChevronDown, Terminal, Sparkles, Code, Download, Coffee } from "lucide-react";
+import { ChevronDown, Terminal, Sparkles, Code, Download, Coffee, Copy } from "lucide-react";
 import { TypewriterText, Cursor } from "../utils/typeAnimateUtils";
 import { slideInFromLeft, scaleUp, fadeIn } from "../utils/motion";
+import Link from "next/link";
 
 const Hero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
+
   // Track mouse position for glow effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-    
+
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-  
+
   return (
     <section className="relative min-h-screen pt-20 flex flex-col justify-center overflow-hidden">
       {/* Background elements */}
@@ -31,10 +32,10 @@ const Hero: React.FC = () => {
             top: `${mousePosition.y / 20}px`,
           }}
         />
-        
+
         {/* Grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,214,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,214,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
-        
+
         {/* Animated circles */}
         <motion.div
           className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-yellow/5 blur-3xl"
@@ -48,7 +49,7 @@ const Hero: React.FC = () => {
             ease: "easeInOut",
           }}
         />
-        
+
         <motion.div
           className="absolute bottom-1/4 right-1/3 h-80 w-80 rounded-full bg-yellow/5 blur-3xl"
           animate={{
@@ -62,29 +63,30 @@ const Hero: React.FC = () => {
           }}
         />
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10 pt-10 md:pt-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Text content */}
-          <motion.div 
+        {/* Grid container - improved spacing */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-items-center lg:justify-items-start">
+          {/* Text content - improved desktop spacing */}
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-col"
+            className="flex flex-col text-center lg:text-left w-full max-w-xl lg:max-w-none"
           >
-            {/* Tag line */}
-            <motion.div 
-              className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow/10 border border-yellow/20 w-fit"
+            {/* Tag line - centered on mobile */}
+            <motion.div
+              className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow/10 border border-yellow/20 w-fit mx-auto lg:mx-0"
               variants={fadeIn}
               custom={0}
             >
               <Sparkles className="text-yellow w-4 h-4" />
               <span className="text-sm text-yellow">Ferramenta CLI de Última Geração</span>
             </motion.div>
-            
-            {/* Main title */}
-            <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+
+            {/* Main title - improved line heights */}
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight lg:leading-[1.2]"
               variants={slideInFromLeft}
               custom={1}
             >
@@ -92,7 +94,7 @@ const Hero: React.FC = () => {
               <span className="text-yellow">Raph</span>{" "}
               <span className="relative">
                 CLI
-                <motion.span 
+                <motion.span
                   className="absolute -bottom-2 left-0 w-full h-1 bg-yellow/50 rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
@@ -100,69 +102,107 @@ const Hero: React.FC = () => {
                 />
               </span>
             </motion.h1>
-            
-            {/* Dynamic description */}
-            <motion.div 
-              className="mb-8 text-lg text-gray-300"
+
+            {/* Dynamic description - improved alignment */}
+            <motion.div
+              className="mb-10 text-lg text-gray-300"
               variants={slideInFromLeft}
               custom={2}
             >
-              <p className="flex items-center h-8">
+              <p className="flex items-center justify-center lg:justify-start h-8 text-sm md:text-base">
                 <span>Perfeito para </span>
-                <TypewriterText 
+                <TypewriterText
                   text={["automação de tarefas", "fluxos de desenvolvimento", "aumento de produtividade", "maestria de linha de comando"]}
                   className="text-yellow font-medium mx-1"
                 />
                 <Cursor />
               </p>
-              <p className="mt-3 text-gray-400">
+              <p className="mt-4 text-gray-400">
                 Leve. Poderoso. Amigável para desenvolvedores.
               </p>
             </motion.div>
-            
-            {/* CTA buttons */}
-            <motion.div 
-              className="flex flex-wrap gap-4"
+
+            {/* CTA section - improved button sizes */}
+            <motion.div
+              className="flex flex-col-reverse md:flex-row gap-4 w-full max-w-md mx-auto lg:mx-0 lg:max-w-none"
               variants={fadeIn}
               custom={3}
             >
-              <GlowingButton 
-                size="lg"
-                icon={<Download className="w-5 h-5" />}
-              >
-                Instalar Agora
-              </GlowingButton>
-              <GlowingButton 
-                variant="outline" 
+              <GlowingButton
+                variant="outline"
                 size="lg"
                 icon={<Terminal className="w-5 h-5" />}
               >
                 Ver Documentação
               </GlowingButton>
+
+              <div className="relative group">
+                <div className="absolute inset-0 bg-yellow/10 rounded-lg blur-sm group-hover:blur-md transition-all duration-300" />
+                <div className="relative bg-darkGray border border-yellowLight shadow-xs shadow-yellow rounded-lg px-4 py-3 flex items-center">
+                  <span className="text-green-400 mr-2">$</span>
+                  <input
+                    type="text"
+                    value="npm create raph-app@latest"
+                    readOnly
+                    className="bg-transparent border-none outline-none text-white font-mono flex-1 text-sm md:text-base"
+                  />
+                  <button
+                    onClick={() => {
+                      if (!navigator.clipboard) {
+                        // Fallback for browsers that don't support Clipboard API
+                        const textArea = document.createElement('textarea');
+                        textArea.value = "npm create raph-app@latest";
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        try {
+                          document.execCommand('copy');
+                          console.log("Command copied to clipboard!");
+                        } catch (err) {
+                          console.error("Failed to copy command:", err);
+                        }
+                        document.body.removeChild(textArea);
+                        return;
+                      }
+
+                      navigator.clipboard.writeText("npm create raph-app@latest")
+                        .then(() => {
+                          console.log("Command copied to clipboard!");
+                        })
+                        .catch(err => {
+                          console.error("Failed to copy command:", err);
+                        });
+                    }}
+                    className="ml-2 p-1 rounded hover:bg-white/5 text-gray-400 hover:text-white transition-colors"
+                    title="Copiar comando"
+                  >
+                    <Copy className="w-4 h-4 md:w-5 md:h-5" />
+                  </button>
+                </div>
+              </div>
             </motion.div>
-            
-            {/* Stats */}
-            <motion.div 
-              className="grid grid-cols-3 gap-2 mt-12 pt-8 border-t border-white/10"
+
+            {/* Stats - improved desktop sizing */}
+            <motion.div
+              className="grid grid-cols-3 gap-4 mt-16 pt-8 border-t border-white/10 mx-auto lg:mx-0 max-w-md lg:max-w-none"
               variants={fadeIn}
               custom={4}
             >
               {[
-                { value: "5.2k", label: "Estrelas GitHub" },
-                { value: "99%", label: "Satisfação" },
-                { value: "0.3s", label: "Resp. Média" },
+                { value: "3+", label: "Estrelas GitHub" },
+                { value: "100%", label: "Satisfação" },
+                { value: "1000s", label: "Resp. Média" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-yellow">{stat.value}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow">{stat.value}</div>
+                  <div className="text-sm md:text-base text-gray-400">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
           </motion.div>
-          
-          {/* Terminal preview */}
+
+          {/* Terminal preview - improved desktop sizing */}
           <motion.div
-            className="relative hidden lg:block"
+            className="relative hidden lg:block w-full max-w-2xl"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -170,7 +210,7 @@ const Hero: React.FC = () => {
             custom={2}
           >
             <div className="absolute inset-0 bg-gradient-radial from-yellow/20 to-transparent opacity-30 blur-xl -z-10" />
-            
+
             <div className="bg-darkGray rounded-lg border border-white/10 shadow-lg">
               {/* Terminal window header */}
               <div className="flex items-center gap-1 py-3 px-4 border-b border-white/10">
@@ -179,48 +219,77 @@ const Hero: React.FC = () => {
                 <div className="w-3 h-3 rounded-full bg-green-500" />
                 <div className="ml-4 text-sm text-gray-400 font-mono">Terminal</div>
               </div>
-              
+
               {/* Terminal content */}
               <pre className="p-4 text-sm font-mono overflow-x-auto">
                 <code>
                   <span className="text-green-400">$ </span>
-                  <span className="text-white">npm install -g raph-cli</span>
+                  <span className="text-white">npm create raph-app@latest</span>
                   {"\n\n"}
-                  <span className="text-gray-400">Instalando Raph CLI v2.4.0...</span>
+                  <span className="text-gray-400">Instalando Raph CLI v1.0.1...</span>
                   {"\n"}
                   <span className="text-gray-400">✓ Dependências instaladas</span>
                   {"\n"}
-                  <span className="text-gray-400">✓ Configuração criada</span>
+                  <span className="bg-gradient-to-t from-yellowGlow via-yellow to-yellowLight inline-block text-transparent bg-clip-text">
+                    {" ____             _         ____ _     ___ \n"}
+                    {"|  _ \\ __ _ _ __ | |__     / ___| |   |_ _|\n"}
+                    {"| |_) / _` | '_ \\| '_ \\   | |   | |    | |\n"}
+                    {"|  _ < (_| | |_) | | | |  | |___| |___ | |\n"}
+                    {"|_| \\_\\__,_| .__/|_| |_|   \\____|_____|___|\n"}
+                    {"           |_|"}
+                  </span>
                   {"\n"}
-                  <span className="text-gray-400">✓ Plugins registrados</span>
-                  {"\n\n"}
+                  <span>
+                    {"                   /\\_/\\  "}
+                    {"\n                  ( ^.^ ) "}
+                    {"\n                   > ^ < "}
+                  </span>
+                  {"\n"}
                   <span className="text-green-400">$ </span>
-                  <span className="text-white">raph --version</span>
+                  <span className="text-yellow">🚀 Bem-vindo ao gerador de projetos Raph!</span>
                   {"\n"}
-                  <span className="text-yellow">2.4.0</span>
-                  {"\n\n"}
-                  <span className="text-green-400">$ </span>
-                  <span className="text-white">raph init meu-projeto</span>
                   {"\n"}
-                  <span className="text-gray-400">Criando novo projeto: meu-projeto</span>
+                  <span className="text-green-400">? </span>
+                  <span className="text-white">Nome do projeto:
+                    <Link href={"https://gabriellucasvh.vercel.app"}
+                      className="text-blue-400 hover:text-pink-700 text-shadow-lg hover:text-shadow-pink-950 hover:animate-pulse"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    > "gabriellucasvh"</Link></span>
                   {"\n"}
-                  <span className="text-gray-400">✓ Estrutura do projeto criada</span>
+                  <span className="text-green-400">? </span>
+                  <span className="text-white">Qual linguagem deseja usar?<span className="text-blue-400"> TypeScript</span></span>
                   {"\n"}
-                  <span className="text-gray-400">✓ Configuração gerada</span>
+                  <span className="text-green-400">? </span>
+                  <span className="text-white">Deseja usar Tailwind CSS (v4)?<span className="text-blue-400"> Sim</span></span>
                   {"\n"}
-                  <span className="text-gray-400">✓ Plugins padrão instalados</span>
-                  {"\n\n"}
-                  <span className="text-green-400">$ </span>
-                  <span className="text-white">raph run meu-projeto</span>
+                  <span>...</span>
                   {"\n"}
-                  <span className="text-yellow">⚡ Executando projeto em modo de desenvolvimento</span>
+                  <span className="text-gray-400">...</span>
                   {"\n"}
-                  <span className="text-white">Projeto rodando em http://localhost:3000</span>
+                  <span className="text-gray-600">...</span>
+                  {"\n"}
+                  <span>
+                    {"\n"}
+                    <div className="space-y-2">
+                      <span className="text-yellow">
+                        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+                      </span>
+                      <div className="text-yellowLight">
+                        ✨ Projeto "gabriellucasvh" criado com sucesso! ✨
+                      </div>
+                      <span className="text-yellow">
+                        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+                      </span>
+                    </div>
+                  </span>
+                  {"\n"}
+                  <span className="text-yellow">Obrigado por usar o Raph CLI! Bom desenvolvimento! 🐈🎉</span>
                   {"\n"}
                 </code>
               </pre>
             </div>
-            
+
             {/* Decoration elements */}
             <motion.div
               className="absolute top-10 -right-10 w-20 h-20 bg-yellow/10 rounded-full blur-xl"
@@ -233,7 +302,7 @@ const Hero: React.FC = () => {
                 duration: 5,
               }}
             />
-            
+
             <motion.div
               className="absolute -bottom-5 -left-5 w-16 h-16 bg-yellow/10 rounded-full blur-xl"
               animate={{
@@ -248,13 +317,13 @@ const Hero: React.FC = () => {
             />
           </motion.div>
         </div>
-        
-        {/* Command badges */}
-        <motion.div 
+
+        {/* Command badges - improved desktop sizing */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.5 }}
-          className="mt-16 flex flex-wrap justify-center gap-4"
+          className="mt-20 flex flex-wrap justify-center gap-4"
         >
           {[
             { command: "raph init", desc: "Iniciar projeto" },
@@ -264,16 +333,16 @@ const Hero: React.FC = () => {
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="px-4 py-2 bg-darkGray rounded-full border border-white/5 flex items-center gap-3"
+              className="px-4 py-2 bg-darkGray rounded-full border border-white/5 flex items-center gap-3 text-sm md:text-base"
               whileHover={{ scale: 1.05, borderColor: "rgba(255, 214, 0, 0.3)" }}
             >
-              <Code className="text-yellow w-4 h-4" />
-              <span className="text-white font-mono text-sm">{item.command}</span>
-              <span className="text-gray-400 text-xs">• {item.desc}</span>
+              <Code className="text-yellow w-4 h-4 md:w-5 md:h-5" />
+              <span className="text-white font-mono">{item.command}</span>
+              <span className="text-gray-400">• {item.desc}</span>
             </motion.div>
           ))}
         </motion.div>
-        
+
         {/* Coffee badge */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -282,9 +351,9 @@ const Hero: React.FC = () => {
           className="absolute bottom-20 right-10 hidden lg:flex items-center gap-2 px-3 py-1.5 bg-yellow/10 rounded-full"
         >
           <Coffee className="text-yellow w-4 h-4" />
-          <span className="text-xs text-gray-300">Desenvolvido com ☕ e JavaScript</span>
+          <span className="text-xs text-gray-300">Desenvolvido com 🐈 e JavaScript</span>
         </motion.div>
-        
+
         {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
