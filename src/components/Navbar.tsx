@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-2"
         >
           <div className="relative">
-            <Image src={"/logo.png"} alt="Logo" width={40} height={40} className="rounded-lg" />
+            <Image src={"/logo.png"} alt="Logo" width={40} height={40} />
           </div>
           <span className="font-bold text-xl sm:text-2xl text-white">
             <span className="text-yellow-400">Raph</span>

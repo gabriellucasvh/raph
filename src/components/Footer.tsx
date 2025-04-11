@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
           {/* Logo and info */}
           <div className="col-span-1 flex flex-col items-center">
             <div className="flex items-center gap-2 mb-4">
-              <Image src={"/logo.png"} alt="Logo" width={40} height={40} className="rounded-lg" />
+              <Image src={"/logo.png"} alt="Logo" width={40} height={40} />
               <span className="font-bold text-xl text-white">
                 <span className="text-yellow">Raph</span>
                 <span className="text-outline opacity-60 font-mono">CLI</span>
