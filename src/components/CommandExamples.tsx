@@ -3,14 +3,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
-    Code,
     Copy,
     Check,
-    ChevronRight,
-    FileJson,
-    TerminalSquare,
-    Search,
-    AlertCircle
+    AlertCircle,
+    SquareTerminal
 } from "lucide-react";
 import { fadeInUp } from "../utils/motion";
 
@@ -108,7 +104,7 @@ const CommandExamples: React.FC = () => {
                                     </div>
                                     <p className="text-xs sm:text-sm text-gray-400">{cmd.description}</p>
                                 </div>
-                                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-yellow/50 mt-1" />
+                                <SquareTerminal className="w-4 h-4 sm:w-5 sm:h-5 text-yellowLight mt-1" />
                             </div>
                         </motion.div>
                     ))}

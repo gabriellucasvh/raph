@@ -153,7 +153,7 @@ const Hero: React.FC = () => {
 
             {/* CTA section - improved button sizes */}
             <motion.div
-              className="flex flex-col-reverse md:flex-row gap-4 w-full max-w-md mx-auto lg:mx-0 lg:max-w-none"
+              className="flex flex-col-reverse lg:flex-row gap-4 w-full max-w-md mx-auto lg:mx-0 lg:max-w-none"
               variants={fadeIn}
               custom={3}
             >
@@ -161,23 +161,26 @@ const Hero: React.FC = () => {
                 variant="outline"
                 size="lg"
                 icon={<Terminal className="w-5 h-5" />}
+                className="flex items-center justify-center gap-2 w-full"
               >
                 Ver Documentação
               </GlowingButton>
 
-              <div className="relative group">
+              <div className="relative group w-full min-w-0">
                 <div className="absolute inset-0 bg-yellow/10 rounded-lg blur-sm group-hover:blur-md transition-all duration-300" />
-                <div className="relative bg-darkGray border border-yellowLight shadow-xs shadow-yellow rounded-lg px-4 py-3 flex items-center">
+                <div className="relative bg-darkGray border border-yellowLight shadow-xs shadow-yellow rounded-lg px-4 py-3 flex items-center w-full">
                   <span className="text-green-400 mr-2">$</span>
-                  <input
-                    type="text"
-                    value="npm create raph-app@latest"
-                    readOnly
-                    className="bg-transparent border-none outline-none text-white font-mono flex-1 text-sm md:text-base"
-                  />
+                  <div className="overflow-x-auto scrollbar-hide flex-1">
+                    <input
+                      type="text"
+                      value="npm create raph-app@latest"
+                      readOnly
+                      className="bg-transparent border-none outline-none text-white font-mono text-sm md:text-base w-full min-w-max"
+                    />
+                  </div>
                   <button
                     onClick={handleCopy}
-                    className="ml-2 p-1 rounded hover:bg-white/5 text-gray-400 hover:text-white transition-colors"
+                    className="ml-2 p-1 rounded hover:bg-white/5 text-gray-400 hover:text-white transition-colors flex-shrink-0"
                     title={copied ? "Copiado!" : "Copiar comando"}
                   >
                     {copied ? (
