@@ -39,7 +39,7 @@ const GlowingButton: React.FC<GlowingButtonProps> = ({
       boxShadow: "0 0 10px rgba(255,214,0,0.3)" 
     },
     animate: { 
-      boxShadow: ["0 0 10px rgba(255,214,0,0.3)", "0 0 20px rgba(255,214,0,0.5)", "0 0 10px rgba(255,214,0,0.3)"],
+      boxShadow: [""],
       transition: {
         duration: 2,
         repeat: Infinity,
