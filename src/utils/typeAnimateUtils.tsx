@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 interface TypewriterProps {
   text: string | string[];
@@ -20,7 +20,7 @@ export const TypewriterText: React.FC<TypewriterProps> = ({
   const [isTyping, setIsTyping] = useState(true);
   const [textArrayIndex, setTextArrayIndex] = useState(0);
   
-  const textArray = Array.isArray(text) ? text : [text];
+  const textArray = useMemo(() => Array.isArray(text) ? text : [text], [text]);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
