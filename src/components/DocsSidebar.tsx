@@ -28,9 +28,9 @@ export function DocsSidebar() {
       initial={{ x: -20, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="w-64 border-r border-white/10 bg-darkGray sticky top-0 h-screen overflow-y-auto"
+      className="w-64 bg-darkGray px-4 sticky top-0 h-min py-10 mt-10 overflow-y-auto border border-yellow/30 shadow-lg rounded-lg"
     >
-      <div className="p-6">
+      <div className="pb-6">
         <motion.h2 
           className="text-2xl font-bold flex items-center gap-2"
           whileHover={{ scale: 1.02 }}
@@ -39,7 +39,7 @@ export function DocsSidebar() {
         </motion.h2>
       </div>
       <nav className="mt-6 relative">
-        <ul className="space-y-1 px-2">
+        <ul className="space-y-1">
           {sections.map((section, index) => {
             const isActive = pathname?.includes(section.id);
             return (
