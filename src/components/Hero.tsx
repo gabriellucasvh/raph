@@ -3,13 +3,14 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import GlowingButton from "./ui-components/GlowingButton";
-import { ChevronDown, Terminal, Sparkles, Code, Download, Coffee, Copy } from "lucide-react";
+import { Terminal, Sparkles, Code, Download, Coffee, Copy, Check } from "lucide-react";
 import { TypewriterText, Cursor } from "../utils/typeAnimateUtils";
 import { slideInFromLeft, scaleUp, fadeIn } from "../utils/motion";
 import Link from "next/link";
 
 const Hero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [copied, setCopied] = useState(false);
 
   // Track mouse position for glow effect
   useEffect(() => {
@@ -20,6 +21,34 @@ const Hero: React.FC = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  const handleCopy = () => {
+    if (!navigator.clipboard) {
+      // Fallback for browsers that don't support Clipboard API
+      const textArea = document.createElement('textarea');
+      textArea.value = "npm create raph-app@latest";
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (err) {
+        console.error("Failed to copy command:", err);
+      }
+      document.body.removeChild(textArea);
+      return;
+    }
+
+    navigator.clipboard.writeText("npm create raph-app@latest")
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch(err => {
+        console.error("Failed to copy command:", err);
+      });
+  };
 
   return (
     <section className="relative min-h-screen pt-20 flex flex-col justify-center overflow-hidden">
@@ -147,35 +176,15 @@ const Hero: React.FC = () => {
                     className="bg-transparent border-none outline-none text-white font-mono flex-1 text-sm md:text-base"
                   />
                   <button
-                    onClick={() => {
-                      if (!navigator.clipboard) {
-                        // Fallback for browsers that don't support Clipboard API
-                        const textArea = document.createElement('textarea');
-                        textArea.value = "npm create raph-app@latest";
-                        document.body.appendChild(textArea);
-                        textArea.select();
-                        try {
-                          document.execCommand('copy');
-                          console.log("Command copied to clipboard!");
-                        } catch (err) {
-                          console.error("Failed to copy command:", err);
-                        }
-                        document.body.removeChild(textArea);
-                        return;
-                      }
-
-                      navigator.clipboard.writeText("npm create raph-app@latest")
-                        .then(() => {
-                          console.log("Command copied to clipboard!");
-                        })
-                        .catch(err => {
-                          console.error("Failed to copy command:", err);
-                        });
-                    }}
+                    onClick={handleCopy}
                     className="ml-2 p-1 rounded hover:bg-white/5 text-gray-400 hover:text-white transition-colors"
-                    title="Copiar comando"
+                    title={copied ? "Copiado!" : "Copiar comando"}
                   >
-                    <Copy className="w-4 h-4 md:w-5 md:h-5" />
+                    {copied ? (
+                      <Check className="w-4 h-4 md:w-5 md:h-5 text-green-400" />
+                    ) : (
+                      <Copy className="w-4 h-4 md:w-5 md:h-5" />
+                    )}
                   </button>
                 </div>
               </div>
