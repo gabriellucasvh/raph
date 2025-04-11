@@ -174,7 +174,7 @@ export function DocsSidebar() {
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="hidden md:block w-64 bg-darkGray px-4 sticky top-0 h-min py-10 mt-10 overflow-y-auto border border-yellow/30 shadow-lg rounded-lg"
+            className="hidden md:block w-64 bg-darkGray px-4 fixed top-20 py-10 overflow-y-auto border border-yellow/30 shadow-lg rounded-lg"
         >
             <div className="pb-6">
                 <motion.h2
@@ -247,5 +247,7 @@ export function DocsSidebar() {
                 </ul>
             </nav>
         </motion.aside>
+
+
     );
 }
