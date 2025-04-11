@@ -32,7 +32,8 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <motion.div
+        <motion.a
+          href="/"
           whileHover={{ scale: 1.05 }}
           className="flex items-center gap-2"
         >
@@ -43,7 +44,7 @@ const Navbar: React.FC = () => {
             <span className="text-yellow-400">Raph</span>
             <span className="text-white/60 font-mono">CLI</span>
           </span>
-        </motion.div>
+        </motion.a>
 
         {/* Combined Links and GitHub Icon */}
         <div className="flex items-center gap-2 sm:gap-4">
