@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import GlowingButton from "./ui-components/GlowingButton";
-import { Terminal, Sparkles, Code, Download, Coffee, Copy, Check } from "lucide-react";
+import { Terminal, Sparkles, Copy, Check } from "lucide-react";
 import { TypewriterText, Cursor } from "../utils/typeAnimateUtils";
 import { slideInFromLeft, scaleUp, fadeIn } from "../utils/motion";
 import Link from "next/link";

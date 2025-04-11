@@ -3,9 +3,8 @@
 import {
     BookOpen, Terminal, Zap, Package, Code, Shield,
     Cpu, Database, GitBranch, Layers,
-    ChevronRight, Menu, X, BookCheck,
+    ChevronRight, Menu, X,
     Github,
-    Dot,
     Cat
 } from "lucide-react";
 import Link from "next/link";
@@ -61,8 +60,8 @@ export function DocsSidebar() {
                     animate={{ y: 0 }}
                     transition={{ duration: 0.5 }}
                     className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
-                            ? "py-3 bg-dark/80 backdrop-blur-lg border-b border-gray-800 shadow-md"
-                            : "py-5"
+                        ? "py-3 bg-dark/80 backdrop-blur-lg border-b border-gray-800 shadow-md"
+                        : "py-5"
                         }`}
                 >
                     <div className="container mx-auto px-8 flex items-center justify-between">
