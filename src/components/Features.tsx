@@ -166,31 +166,11 @@ const Features: React.FC = () => {
                   <td className="py-3 px-4">0.6s</td>
                 </tr>
                 <tr className="border-b border-white/5">
-                  <td className="py-3 px-4">Experiência do Usuário</td>
-                  <td className="py-3 px-4 text-yellow font-medium">
-                    <div className="flex items-center">
-                      <span>Excelente</span>
-                      <span className="ml-1">★★★★★</span>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center">
-                      <span>Boa</span>
-                      <span className="ml-1">★★★★☆</span>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center">
-                      <span>Boa</span>
-                      <span className="ml-1">★★★★☆</span>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center">
-                      <span>Média</span>
-                      <span className="ml-1">★★★☆☆</span>
-                    </div>
-                  </td>
+                  <td className="py-3 px-4">Autocompletar</td>
+                  <td className="py-3 px-4 text-yellow font-medium">✅ Inteligente</td>
+                  <td className="py-3 px-4">✅ Básico</td>
+                  <td className="py-3 px-4">❌ Nenhum</td>
+                  <td className="py-3 px-4">✅ Básico</td>
                 </tr>
                 <tr className="border-b border-white/5">
                   <td className="py-3 px-4">Sistema de Plugins</td>
@@ -200,18 +180,18 @@ const Features: React.FC = () => {
                   <td className="py-3 px-4">❌ Nenhum</td>
                 </tr>
                 <tr className="border-b border-white/5">
-                  <td className="py-3 px-4">Integrações Cloud</td>
-                  <td className="py-3 px-4 text-yellow font-medium">✅ Completas</td>
-                  <td className="py-3 px-4">✅ Básicas</td>
-                  <td className="py-3 px-4">❌ Limitadas</td>
-                  <td className="py-3 px-4">❌ Nenhuma</td>
+                  <td className="py-3 px-4">Scripts Personalizados</td>
+                  <td className="py-3 px-4 text-yellow font-medium">✅ Suporte Completo</td>
+                  <td className="py-3 px-4">✅ Parcial</td>
+                  <td className="py-3 px-4">❌ Nenhum</td>
+                  <td className="py-3 px-4">✅ Parcial</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4">Atualizações</td>
-                  <td className="py-3 px-4 text-yellow font-medium">Semanais</td>
-                  <td className="py-3 px-4">Mensais</td>
-                  <td className="py-3 px-4">Trimestrais</td>
-                  <td className="py-3 px-4">Irregulares</td>
+                  <td className="py-3 px-4">Multiplataforma</td>
+                  <td className="py-3 px-4 text-yellow font-medium">✅ Windows/Mac/Linux</td>
+                  <td className="py-3 px-4">✅ Linux/Mac</td>
+                  <td className="py-3 px-4">✅ Windows</td>
+                  <td className="py-3 px-4">✅ Linux</td>
                 </tr>
               </tbody>
             </table>
@@ -234,9 +214,9 @@ const Features: React.FC = () => {
             {[
               {
                 quote: "Raph CLI transformou completamente meu fluxo de trabalho. Economizo pelo menos 2 horas por dia com automações.",
-                author: "Ana Silva",
-                role: "Engenheira Frontend",
-                company: "TechCorp"
+                author: "Hugo Santos",
+                role: "Tech Lead",
+                company: "Startup"
               },
               {
                 quote: "A melhor ferramenta CLI que já usei. A extensibilidade por meio de plugins é simplesmente incrível.",
