@@ -327,31 +327,6 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Command badges - improved desktop sizing */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-          className="mt-20 flex flex-wrap justify-center gap-4"
-        >
-          {[
-            { command: "raph init", desc: "Iniciar projeto" },
-            { command: "raph install", desc: "Instalar pacotes" },
-            { command: "raph build", desc: "Construir projeto" },
-            { command: "raph deploy", desc: "Publicar aplicação" },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              className="px-4 py-2 bg-darkGray rounded-full border border-white/5 flex items-center gap-3 text-sm md:text-base"
-              whileHover={{ scale: 1.05, borderColor: "rgba(255, 214, 0, 0.3)" }}
-            >
-              <Code className="text-yellow w-4 h-4 md:w-5 md:h-5" />
-              <span className="text-white font-mono">{item.command}</span>
-              <span className="text-gray-400">• {item.desc}</span>
-            </motion.div>
-          ))}
-        </motion.div>
-
         {/* Coffee badge */}
         <motion.div
           initial={{ opacity: 0 }}
