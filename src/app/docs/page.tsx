@@ -1,9 +1,9 @@
-import Documentation from "@/components/Documentation";
+import OverviewPage from "./overview/page";
 
-export default function docs() {
-    return (
-        <div>
-            <Documentation />
-        </div>
-    )
+export default function Docs() {
+  return (
+    <div>
+      <OverviewPage />
+    </div>
+  );
 }
