@@ -354,26 +354,6 @@ const Hero: React.FC = () => {
           <span className="text-xs text-gray-300">Desenvolvido com 🐈 e JavaScript</span>
         </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-        >
-          <span className="text-sm text-gray-400">Rolar para explorar</span>
-          <motion.div
-            animate={{
-              y: [0, 5, 0],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 1.5,
-            }}
-          >
-            <ChevronDown className="text-yellow w-6 h-6" />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
