@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function TypeScriptPage() {
   return (
-    <section className="max-w-4xl mx-auto px-4 py-8">
+    <section className="max-w-4xl mx-auto px-4">
       <header className="flex items-center gap-3 mb-8">
         <Code size={24} className="text-yellow" />
         <h1 className="text-3xl font-bold text-yellow">TypeScript: JavaScript Tipado</h1>

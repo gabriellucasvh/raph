@@ -2,7 +2,7 @@ import { BookOpen } from "lucide-react";
 
 export default function OverviewPage() {
   return (
-    <section className="max-w-4xl mx-auto px-4 py-8">
+    <section className="max-w-4xl mx-auto px-4">
       <header className="flex items-center gap-3 mb-8">
         <div className="text-yellow">
           <BookOpen size={24} />

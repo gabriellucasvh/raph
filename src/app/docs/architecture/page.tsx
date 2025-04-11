@@ -2,7 +2,7 @@ import { Layers } from "lucide-react";
 
 export default function ArchitecturePage() {
   return (
-    <section className="max-w-4xl mx-auto px-4 py-8">
+    <section className="max-w-4xl mx-auto px-4">
       <header className="flex items-center gap-3 mb-8">
         <Layers size={24} className="text-yellow" />
         <h1 className="text-3xl font-bold text-yellow">Arquitetura</h1>
