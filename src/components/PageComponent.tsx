@@ -6,8 +6,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import CommandExamples from "@/components/CommandExamples";
-import Demo from "@/components/Demo";
 import Footer from "@/components/Footer";
+import Techs from "./Techs";
 
 export default function PageComponents() {
     const { scrollYProgress } = useScroll();
@@ -23,7 +23,7 @@ export default function PageComponents() {
     }, []);
 
     return (
-        <div className="flex flex-col min-h-screen bg-neutral-900">
+        <div className="flex flex-col min-h-screen bg-dark">
             {/* Progress bar */}
             <motion.div
                 className="fixed top-0 left-0 right-0 h-1 bg-yellow z-50 origin-left"
@@ -34,9 +34,9 @@ export default function PageComponents() {
 
             <main className="flex-1">
                 <Hero />
+                <Techs />
                 <Features />
                 <CommandExamples />
-                <Demo />
             </main>
 
             <Footer />
