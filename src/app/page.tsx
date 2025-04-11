@@ -1,7 +1,9 @@
+import PageComponents from "@/components/PageComponent";
+
 export default function Home() {
   return (
-    <main>
-      <div>Hello world!</div>
+    <main className="text-white bg-dark">
+      <div><PageComponents /></div>
     </main>
   );
 }
