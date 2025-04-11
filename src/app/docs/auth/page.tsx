@@ -12,7 +12,7 @@ export default function AuthPage() {
       </div>
       
       <div className="space-y-6">
-        <div className="flex items-start gap-4">
+        <div className="flex flex-col md:flex-row items-start gap-4">
           <div className="flex-shrink-0">
             <Image 
               src="/techs/nextauth.png" 
