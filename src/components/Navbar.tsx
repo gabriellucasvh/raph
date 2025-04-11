@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Github, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
+import { BookCheck, Github } from "lucide-react";
 import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +17,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: "Features", href: "#features" },
-    { name: "Demo", href: "#demo" },
     { name: "Docs", href: "#docs" },
-    { name: "Community", href: "#community" },
   ];
 
   return (
@@ -50,76 +46,34 @@ const Navbar: React.FC = () => {
           </span>
         </motion.div>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link, index) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.1 * index }}
-              className="text-gray-300 hover:text-yellow-400 transition-colors relative group"
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 h-[2px] bg-yellow w-0 group-hover:w-full transition-all duration-300" />
-            </motion.a>
-          ))}
-        </nav>
+        {/* Combined Links and GitHub Icon */}
+        <div className="flex items-center gap-2 sm:gap-4">
+          <nav className="flex items-center">
+            {navLinks.map((link, index) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 * index }}
+                className="flex items-center gap-1 text-gray-300 hover:text-yellow-400 transition-colors relative group text-sm sm:text-base px-2 sm:px-4"
+              >
+                <BookCheck size={16}/>{link.name}
+                <span className="absolute -bottom-1 left-0 h-[2px] bg-yellow w-0 group-hover:w-full transition-all duration-300" />
+              </motion.a>
+            ))}
+          </nav>
 
-        {/* Social/CTA Links */}
-        <div className="hidden md:flex items-center gap-3">
           <motion.a
-            whileHover={{ rotate: 2, scale: 1.1 }}
+            whileHover={{ rotate: 10, scale: 1.1 }}
             href="#"
             aria-label="GitHub"
             className="flex items-center gap-2 text-gray-400 hover:text-white p-2"
           >
-            <Github size={20} /> Repositório
+            <Github size={20} />
           </motion.a>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-2 text-gray-400 md:hidden"
-          aria-label="Menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-neutral-900 border-t border-white/5"
-          >
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="py-3 text-gray-300 hover:text-yellow-400 border-b border-white/5"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <div className="py-4 flex justify-between">
-                <div className="flex gap-4">
-                  <a href="#" aria-label="GitHub" className="text-gray-400 hover:text-white">
-                    <Github size={20} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.header>
   );
 };
