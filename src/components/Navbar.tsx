@@ -48,6 +48,16 @@ const Navbar: React.FC = () => {
 
         {/* Combined Links and GitHub Icon */}
         <div className="flex items-center gap-2 sm:gap-4">
+          <motion.a
+            whileHover={{ rotate: 10, scale: 1.1 }}
+            href="https://github.com/gabriellucasvh/raph"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="flex items-center gap-2 text-gray-400 hover:text-white"
+          >
+            <Github size={20} />
+          </motion.a>
           <nav className="flex items-center">
             {navLinks.map((link, index) => (
               <motion.a
@@ -64,16 +74,6 @@ const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          <motion.a
-            whileHover={{ rotate: 10, scale: 1.1 }}
-            href="https://github.com/gabriellucasvh/raph"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="flex items-center gap-2 text-gray-400 hover:text-white"
-          >
-            <Github size={20} />
-          </motion.a>
         </div>
       </div>
     </motion.header>
