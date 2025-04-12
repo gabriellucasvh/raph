@@ -84,7 +84,7 @@ export function DocsSidebar() {
                         <div className="flex items-center gap-4">
                             <motion.a
                                 whileHover={{ rotate: 10, scale: 1.1 }}
-                                href="https://github.com/gabriellucasvh/raph"
+                                href="https://github.com/gabriellucasvh/create-raph-app"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="GitHub"
