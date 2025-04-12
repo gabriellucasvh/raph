@@ -7,11 +7,14 @@ import GlowingButton from "./ui-components/GlowingButton";
 import { Terminal, Sparkles, Copy, Check } from "lucide-react";
 import { TypewriterText, Cursor } from "../utils/typeAnimateUtils";
 import { slideInFromLeft, scaleUp, fadeIn } from "../utils/motion";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const Hero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [copied, setCopied] = useState(false);
+
+  const router = useRouter();
 
   // Track mouse position for glow effect
   useEffect(() => {
@@ -163,6 +166,7 @@ const Hero: React.FC = () => {
                 size="lg"
                 icon={<Terminal className="w-5 h-5" />}
                 className="flex items-center justify-center gap-2 w-full"
+                onClick={() => router.push("/docs")}
               >
                 Ver Documentação
               </GlowingButton>
