@@ -207,7 +207,7 @@ const Hero: React.FC = () => {
               {[
                 { value: "3+", label: "Estrelas GitHub" },
                 { value: "100%", label: "Satisfação" },
-                { value: "1000s", label: "Resp. Média" },
+                { value: "0,1s", label: "Resp. Média" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow">{stat.value}</div>
